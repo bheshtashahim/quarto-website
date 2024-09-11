@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bheshta Shahim",
+    "section": "",
+    "text": "This is my Quarto website. All projects and assignments will be posted here.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Bheshta Shahim",
+    "section": "",
+    "text": "title: “About” author: Bheshta Shahim format: revealjs: theme: “serif”\nAbout this site"
+  },
+  {
+    "objectID": "Submissions.html",
+    "href": "Submissions.html",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "Assignment 1"
+  }
+]
