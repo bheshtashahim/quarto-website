@@ -1,0 +1,12 @@
+---
+title: "About"
+author: Bheshta Shahim
+format: 
+  html: 
+    theme: "yeti" 
+---
+
+![Bheshta Shahim](website photo.png){height=50% width=30%}
+
+Hi, welcome to my website! My name is Bheshta, and I'm a current Master's student in the Social Data Analytics and Research program at UT Dallas. 
+

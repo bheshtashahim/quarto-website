@@ -1,0 +1,191 @@
+---
+title: "Assignment 1"
+author: Bheshta Shahim
+format: 
+  html: 
+    theme: "yeti" 
+---
+
+------------------------------------------------------------------------
+
+### Try Anscombe's examples.
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE,results='hide'}
+## Data Visualization
+## Objective: Identify data or model problems using visualization
+## Anscombe (1973) Quartlet
+
+data(anscombe)  # Load Anscombe's data
+# View(anscombe) # View the data
+summary(anscombe)
+
+## Simple version
+plot(anscombe$x1,anscombe$y1)
+summary(anscombe)
+
+# Create four model objects
+lm1 <- lm(y1 ~ x1, data=anscombe)
+summary(lm1)
+lm2 <- lm(y2 ~ x2, data=anscombe)
+summary(lm2)
+lm3 <- lm(y3 ~ x3, data=anscombe)
+summary(lm3)
+lm4 <- lm(y4 ~ x4, data=anscombe)
+summary(lm4)
+plot(anscombe$x1,anscombe$y1)
+abline(coefficients(lm1))
+plot(anscombe$x2,anscombe$y2)
+abline(coefficients(lm2))
+plot(anscombe$x3,anscombe$y3)
+abline(coefficients(lm3))
+plot(anscombe$x4,anscombe$y4)
+abline(coefficients(lm4))
+
+## Fancy version (per help file)
+
+ff <- y ~ x
+mods <- setNames(as.list(1:4), paste0("lm", 1:4))
+
+# Plot using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  ## or   ff[[2]] <- as.name(paste0("y", i))
+  ##      ff[[3]] <- as.name(paste0("x", i))
+  mods[[i]] <- lmi <- lm(ff, data = anscombe)
+  print(anova(lmi))
+}
+
+sapply(mods, coef)  # Note the use of this function
+lapply(mods, function(fm) coef(summary(fm)))
+
+# Preparing for the plots
+op <- par(mfrow = c(2, 2), mar = 0.1+c(4,4,1,1), oma =  c(0, 0, 2, 0))
+
+# Plot charts using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  plot(ff, data = anscombe, col = "red", pch = 21, bg = "orange", cex = 1.2,
+       xlim = c(3, 19), ylim = c(3, 13))
+  abline(mods[[i]], col = "blue")
+}
+mtext("Anscombe's 4 Regression data sets", outer = TRUE, cex = 1.5)
+par(op)
+
+```
+
+### Cite some examples of generative art.
+
+```{r,echo=FALSE}
+knitr::include_graphics("https://katharinabrunner.de/wp-content/uploads/2018/12/2018-11-05-20-46_seed_4593.png")
+```
+Brunner, Katharina. Generative art written in R. 3 Dec. 2018. When Two Points on a Circle Form a Line,[https://katharinabrunner.de/2018/12/when-two-points-on-a-circle-form-a-line/](https://katharinabrunner.de/2018/12/when-two-points-on-a-circle-form-a-line/)
+
+<br>
+
+
+```{r,echo=FALSE}
+knitr::include_graphics("https://mir-s3-cdn-cf.behance.net/project_modules/fs/fd0d3664930903.5ae241b9cb64c.png")
+```
+Naon, Manolo Gamboa. VVRRR. 26 Apr. 2018. Manolo Gamboa Naon, Behance.Net, [https://www.behance.net/gallery/64930903/VVRRR](https://www.behance.net/gallery/64930903/VVRRR).
+<br> 
+
+```{r,echo=FALSE}
+knitr::include_graphics("https://blog.djnavarro.net/posts/2021-10-19_rtistry-posts/index_files/figure-html/flametree-1.png")
+```
+Navarro, Danielle. 2021. “Generative Art Resources in R.” October 19, 2021. [https://blog.djnavarro.net/posts/2021-10-19_rtistry-posts/](https://blog.djnavarro.net/posts/2021-10-19_rtistry-posts/)
+<br> 
+
+
+### Run Fall.R
+
+#### Give your own colors and export file.
+##### I chose the color Sienna, which has a Hex color code of a0522d.
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+## Data Visualization
+## Objective: Create graphics with R
+## Title: Fall color
+# Credit: https://fronkonstin.com
+
+# Install packages
+# install.packages(c("gsubfn", "proto", "tidyverse"))
+
+library(gsubfn)
+library(tidyverse)
+
+# Define elements in plant art
+# Each image corresponds to a different axiom, rules, angle and depth
+
+# Leaf of Fall
+
+axiom="X"
+rules=list("X"="F-[[X]+X]+F[+FX]-X", "F"="FF")
+angle=22.5
+depth=6
+
+
+for (i in 1:depth) axiom=gsubfn(".", rules, axiom)
+
+actions=str_extract_all(axiom, "\\d*\\+|\\d*\\-|F|L|R|\\[|\\]|\\|") %>% unlist
+
+status=data.frame(x=numeric(0), y=numeric(0), alfa=numeric(0))
+points=data.frame(x1 = 0, y1 = 0, x2 = NA, y2 = NA, alfa=90, depth=1)
+
+
+# Generating data
+# Note: may take a minute or two
+
+for (action in actions)
+{
+  if (action=="F")
+  {
+    x=points[1, "x1"]+cos(points[1, "alfa"]*(pi/180))
+    y=points[1, "y1"]+sin(points[1, "alfa"]*(pi/180))
+    points[1,"x2"]=x
+    points[1,"y2"]=y
+    data.frame(x1 = x, y1 = y, x2 = NA, y2 = NA,
+               alfa=points[1, "alfa"],
+               depth=points[1,"depth"]) %>% rbind(points)->points
+  }
+  if (action %in% c("+", "-")){
+    alfa=points[1, "alfa"]
+    points[1, "alfa"]=eval(parse(text=paste0("alfa",action, angle)))
+  }
+  if(action=="["){
+    data.frame(x=points[1, "x1"], y=points[1, "y1"], alfa=points[1, "alfa"]) %>%
+      rbind(status) -> status
+    points[1, "depth"]=points[1, "depth"]+1
+  }
+
+  if(action=="]"){
+    depth=points[1, "depth"]
+    points[-1,]->points
+    data.frame(x1=status[1, "x"], y1=status[1, "y"], x2=NA, y2=NA,
+               alfa=status[1, "alfa"],
+               depth=depth-1) %>%
+      rbind(points) -> points
+    status[-1,]->status
+  }
+}
+
+ggplot() +
+  geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2),
+               lineend = "round",
+               color="sienna", # Set your own Fall color?
+               data=na.omit(points)) +
+  coord_fixed(ratio = 1) +
+  theme_void() # No grid nor axes
+```
+### Write a critique on a chart in a published work (book/article/news website).
+
+![Chart of Total Welfare Spending](https://img.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2013/02/20/National-Politics/Images/Total-Welfare-Spending-Equates-To-Per-Day-For-Every-Household-In-Poverty.jpg?uuid=Awcj7ntwEeKgRGdoVlNrQA)
+
+This graph is supposed to depict the welfare spending per day and per hour on every household in poverty. This graph was used in a political argument by Republican senator Jeff Sessions. There are several reasons why this graph is misleading and doesn’t serve as an accurate visualization of the data. 
+
+Firstly, the chart excludes a large amount of context; there is no visible information about what types of welfare programs are being included or excluded from these statistics. The news article states that when doing the calculations for this chart, Sessions and his team included a wide variety of programs, including Medicaid, food stamps, and several other means-tested programs aimed at those with low incomes; he even includes health benefits given through an employer. The calculations also did not take into account the fact that many individuals who are not in poverty also benefit from these programs, but they are not included in the data shown in the chart. By not strictly defining what constitutes a welfare program and by not including a significant portion of welfare recipients in these data, Sessions has inflated the figure of $168 per day of welfare spending for those in poverty. Another issue is the fact that the chart is also comparing the welfare spending to median income; however, the median income does not include health benefits given by an employer, while Sessions’ calculation of the welfare spending does factor in those health benefits. This is an inaccurate and misleading comparison, especially given the argument Sessions is making and the way the chart is constructed to show the two amounts side by side.
+
+In addition, the chart only shows these two dollar amounts - welfare spending per day and per hour, as compared to the median income per day and per hour. All parts of the chart, including axes, labels, and the graphed data as well, are very elementary and basic. Even the subtitle includes the inaccurate comparison to median income. 
+
+While the chart is simple to look at, it doesn’t convey anything meaningful; we don’t know what is considered a welfare program for these data, we don’t know from which or from how many individuals this data was gathered, and we don’t know when this data was collected. Readers can not trust the message that this graph is presenting without having access to the full context of the data. Considering all of these factors, we can assert that this chart is misleading and doesn’t effectively visually represent the data. 
+
+------------------------------------------------------------------------
