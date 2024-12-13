@@ -3,7 +3,7 @@
     "path": "~/Quarto website EPPS 6356/assignment3.qmd",
     "project_path": "assignment3.qmd",
     "type": "quarto_markdown",
-    "hash": "3291175352",
+    "hash": "381512208",
     "contents": "",
     "dirty": false,
     "created": 1727915200949.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "19,301",
-        "scrollLine": "8"
+        "cursorPosition": "19,12",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1733975863,
+    "lastKnownWriteTime": 1734060326,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1733975863980,
+    "last_content_update": 1734060328925,
     "read_only": false,
     "read_only_alternatives": []
 }

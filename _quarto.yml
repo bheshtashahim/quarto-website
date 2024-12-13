@@ -22,8 +22,11 @@ website:
             text: "Assignment 4"
           - href: assignment5.qmd
             text: "Assignment 5"
+<<<<<<< HEAD
           - href: assignment6.qmd
             text: "Assignment 6"
+=======
+>>>>>>> 0f2355446eb98df9717f6d710f5ae193a735ea31
           - href: other.qmd 
             text: "Literature & Media Reviews"
       - text: "Final Projects"

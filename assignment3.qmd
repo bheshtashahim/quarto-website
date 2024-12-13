@@ -17,7 +17,11 @@ names(pie.sales) <- c("Blueberry", "Cherry",
 pie(pie.sales, col = gray(seq(0.3,1.0,length=6))) 
 ```
 
+<<<<<<< HEAD
 In this pie chart from murrell01.R, the chart is configured by specifications of parameters, categories, colors, and more. For example, par(mar=c(0, 2, 1, 2), xpd=FALSE, cex=0.5) indicate the positioning, size, and appearance of the pie chart. The names of the categories in the chart are given by the names(pie.sales) part of the code, while the colors are specified by col=gray. 
+=======
+In this pie chart from murrell01.R, the chart is configured by specifications of parameters, categories, colors, and more. 
+>>>>>>> 0f2355446eb98df9717f6d710f5ae193a735ea31
 
 ### Compare the regression models in anscombe01.R, and compare different ways to create the plots. 
 
