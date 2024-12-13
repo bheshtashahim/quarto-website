@@ -1,0 +1,36 @@
+---
+title: "Assignment 6"
+author: Bheshta Shahim
+format: 
+  html: 
+    theme: "yeti" 
+---
+### Run the sample Shiny program - can you change it to your personal font? 
+
+#### Yes, you can change it to your personal font - you just have to edit the "font-family" part of the code. For example, if I want to use the serif font, I would change it to font-family: 'serif'.
+
+### Build a Shiny application using the following datasets:  
+
+#### a. mtcars
+#### [mtcars Shiny App](https://bhesh-shahim.shinyapps.io/assignment_6/)
+
+#### b. USArrests 
+#### [USArrests Shiny App](https://bhesh-shahim.shinyapps.io/usarrests/)
+
+#### c. uspop
+#### [uspop Shiny App](https://bhesh-shahim.shinyapps.io/uspop/)
+<br> 
+
+
+<br>
+
+<br>
+
+
+
+
+
+<br>
+
+
+###### AI was used in assisting with some code generation, finding errors, debugging, and enhancements.

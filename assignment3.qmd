@@ -1,0 +1,214 @@
+---
+title: "Assignment 3"
+author: Bheshta Shahim
+format: 
+  html: 
+    theme: "yeti" 
+---
+
+### Choose one of the six charts from murrell01.R and explain how it is configured by adding documentation to the codes. 
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+# Piechart
+par(mar=c(0, 2, 1, 2), xpd=FALSE, cex=0.5)
+pie.sales <- c(0.12, 0.3, 0.26, 0.16, 0.04, 0.12)
+names(pie.sales) <- c("Blueberry", "Cherry",
+                      "Apple", "Boston Cream", "Other", "Vanilla")
+pie(pie.sales, col = gray(seq(0.3,1.0,length=6))) 
+```
+
+In this pie chart from murrell01.R, the chart is configured by specifications of parameters, categories, colors, and more. For example, par(mar=c(0, 2, 1, 2), xpd=FALSE, cex=0.5) indicate the positioning, size, and appearance of the pie chart. The names of the categories in the chart are given by the names(pie.sales) part of the code, while the colors are specified by col=gray. 
+
+### Compare the regression models in anscombe01.R, and compare different ways to create the plots. 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+## Fancy version (per help file)
+
+ff <- y ~ x
+mods <- setNames(as.list(1:4), paste0("lm", 1:4))
+
+# Plot using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  ## or   ff[[2]] <- as.name(paste0("y", i))
+  ##      ff[[3]] <- as.name(paste0("x", i))
+  mods[[i]] <- lmi <- lm(ff, data = anscombe)
+  print(anova(lmi))
+}
+
+sapply(mods, coef)  # Note the use of this function
+lapply(mods, function(fm) coef(summary(fm)))
+
+# Preparing for the plots
+op <- par(mfrow = c(2, 2), mar = 0.1+c(4,4,1,1), oma =  c(0, 0, 2, 0))
+
+# Plot charts using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  plot(ff, data = anscombe, col = "red", pch = 21, bg = "orange", cex = 1.2,
+       xlim = c(3, 19), ylim = c(3, 13))
+  abline(mods[[i]], col = "blue")
+}
+mtext("Anscombe's 4 Regression data sets", outer = TRUE, cex = 1.5)
+par(op)
+
+```
+Here we can see the four regression data sets given by anscombe01.R; currently, these regression models are uniform, with the same colors and same style. However, we can customize these charts in different ways by changing features such as the line type and color as well as the point color, shape, or size. 
+For example, we can change the point type from filled to unfilled or change the color to green or purple. We can also make changes to the line - a dotted line, a traced line, or making the line thicker or thinner. 
+
+
+### Can you finetune the charts without using other packages? 
+####       a) use a serif font 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+## Fancy version (per help file)
+
+ff <- y ~ x
+mods <- setNames(as.list(1:4), paste0("lm", 1:4))
+
+# Plot using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  ## or   ff[[2]] <- as.name(paste0("y", i))
+  ##      ff[[3]] <- as.name(paste0("x", i))
+  mods[[i]] <- lmi <- lm(ff, data = anscombe)
+  print(anova(lmi))
+}
+
+sapply(mods, coef)  # Note the use of this function
+lapply(mods, function(fm) coef(summary(fm)))
+
+# Preparing for the plots
+op <- par(mfrow = c(2, 2), mar = 0.1+c(4,4,1,1), oma =  c(0, 0, 2, 0), family = "serif")
+
+# Plot charts using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  plot(ff, data = anscombe, col = "red", pch = 21, bg = "orange", cex = 1.2,
+       xlim = c(3, 19), ylim = c(3, 13))
+  abline(mods[[i]], col = "blue")
+}
+mtext("Anscombe's 4 Regression data sets", outer = TRUE, cex = 1.5)
+par(op)
+
+```
+
+####       b) try non-default colors
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+## Fancy version (per help file)
+
+ff <- y ~ x
+mods <- setNames(as.list(1:4), paste0("lm", 1:4))
+
+# Plot using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  ## or   ff[[2]] <- as.name(paste0("y", i))
+  ##      ff[[3]] <- as.name(paste0("x", i))
+  mods[[i]] <- lmi <- lm(ff, data = anscombe)
+  print(anova(lmi))
+}
+
+sapply(mods, coef)  # Note the use of this function
+lapply(mods, function(fm) coef(summary(fm)))
+
+# Preparing for the plots
+op <- par(mfrow = c(2, 2), mar = 0.1+c(4,4,1,1), oma =  c(0, 0, 2, 0), family = "serif")
+
+# Plot charts using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  plot(ff, data = anscombe, col = "maroon4", pch = 21, bg = "palevioletred1", cex = 1.2,
+       xlim = c(3, 19), ylim = c(3, 13))
+  abline(mods[[i]], col = "skyblue")
+}
+mtext("Anscombe's 4 Regression data sets", outer = TRUE, cex = 1.5)
+par(op)
+
+```
+
+####       c) use own plotting character
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+## Fancy version (per help file)
+
+ff <- y ~ x
+mods <- setNames(as.list(1:4), paste0("lm", 1:4))
+
+# Plot using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  ## or   ff[[2]] <- as.name(paste0("y", i))
+  ##      ff[[3]] <- as.name(paste0("x", i))
+  mods[[i]] <- lmi <- lm(ff, data = anscombe)
+  print(anova(lmi))
+}
+
+sapply(mods, coef)  # Note the use of this function
+lapply(mods, function(fm) coef(summary(fm)))
+
+# Preparing for the plots
+op <- par(mfrow = c(2, 2), mar = 0.1+c(4,4,1,1), oma =  c(0, 0, 2, 0), family = "serif")
+
+# Plot charts using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  plot(ff, data = anscombe, col = "maroon4", pch = 18, bg = "palevioletred1", cex = 1.2,
+       xlim = c(3, 19), ylim = c(3, 13))
+  abline(mods[[i]], col = "skyblue")
+}
+mtext("Anscombe's 4 Regression data sets", outer = TRUE, cex = 1.5)
+par(op)
+
+```
+### How about using ggplot2? 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+library(ggplot2)
+library(gridExtra)  # For arranging multiple plots together
+library(grid)      # For adding text grob
+
+# Prepare a list to store ggplot models
+anscombe_data <- anscombe
+
+# Create a list to store ggplot objects
+plot_list <- list()
+
+# Generate each subset plot
+for(i in 1:4) {
+  
+  # Create a dataframe dynamically for each subset
+  df <- data.frame(
+    x = anscombe_data[[paste0("x", i)]],
+    y = anscombe_data[[paste0("y", i)]]
+  )
+  
+  # Fit a regression model for each subset
+  model <- lm(y ~ x, data = df)
+
+  # Create the ggplot for the dataset subset
+  p <- ggplot(df, aes(x = x, y = y)) +
+    geom_point(color = "maroon4", size = 3) +
+    geom_smooth(method = "lm", se = FALSE, color = "skyblue", size = 1.5) +
+    labs(title = paste0("Subset ", i)) +
+    theme_minimal() +
+    theme(text = element_text(family = "serif"))
+  
+  # Append the plot to the list
+  plot_list[[i]] <- p
+}
+
+# Create a main title grob
+main_title <- textGrob("Anscombe's Four Regression Datasets", gp = gpar(fontsize = 20, fontfamily = "serif"))
+
+# Arrange the plots with gridExtra and add the title
+grid.arrange(main_title, 
+             do.call("arrangeGrob", c(plot_list, ncol = 2)),
+             ncol = 1, heights = c(0.1, 0.9))
+
+```
+
+### Hackathon 
+#### Replicate given the Scatterplot matrix displaying COVID-19 deaths in Europe. 
+

@@ -1,0 +1,4 @@
+"0",""
+"0","# Reset graphical parameters to defaults"
+"0","par(family = ""sans"", cex.main = 1, cex.lab = 1, cex.axis = 1)"
+"0",""

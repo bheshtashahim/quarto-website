@@ -1,0 +1,12 @@
+name: uspop
+title: uspop
+username: bhesh-shahim
+account: bhesh-shahim
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13583167
+bundleId: 9507570
+url: https://bhesh-shahim.shinyapps.io/uspop/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,8 @@
+"0",""
+"0","# Plot charts using for loop"
+"0","for(i in 1:4) {"
+"0","  ff[2:3] <- lapply(paste0(c(""y"",""x""), i), as.name)"
+"0","  plot(ff, data = anscombe, col = ""red"", pch = 21, bg = ""orange"", cex = 1.2,"
+"0","       xlim = c(3, 19), ylim = c(3, 13))"
+"0","  abline(mods[[i]], col = ""blue"")"
+"0","}"

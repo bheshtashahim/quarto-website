@@ -1,0 +1,3 @@
+"0","## Start plotting from basics "
+"0","# Note the order"
+"0","plot(pressure, pch=15)  # Can you change pch?"

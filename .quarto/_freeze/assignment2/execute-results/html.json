@@ -1,0 +1,17 @@
+{
+  "hash": "3b4a843294b6397a334bb86401c74ccc",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Assignment 2\"\nauthor: Bheshta Shahim\nformat: \n  html: \n    theme: \"yeti\" \n---\n\n\n\n\n------------------------------------------------------------------------\n\n### Run Paul Murrell's RGraphics basic R programs line by line and note the changes. Address the question if there is one. \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment2_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n\n::: {.cell-output-display}\n![](assignment2_files/figure-html/unnamed-chunk-1-2.png){width=672}\n:::\n:::\n\n\n\n\n### Plot functions using the Happy Planet data set.\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment2_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n\n::: {.cell-output-display}\n![](assignment2_files/figure-html/unnamed-chunk-2-2.png){width=672}\n:::\n\n::: {.cell-output-display}\n![](assignment2_files/figure-html/unnamed-chunk-2-3.png){width=672}\n:::\n\n::: {.cell-output-display}\n![](assignment2_files/figure-html/unnamed-chunk-2-4.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "assignment2_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

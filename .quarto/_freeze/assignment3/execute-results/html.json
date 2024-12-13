@@ -1,0 +1,17 @@
+{
+  "hash": "6d03b1475e2f4f5cd14406e29c7c6a98",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Assignment 3\"\nauthor: Bheshta Shahim\nformat: \n  html: \n    theme: \"yeti\" \n---\n\n\n\n\n### Choose one of the six charts from murrell01.R and explain how it is configured by adding documentation to the codes. \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment3_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n\n\nIn this pie chart from murrell01.R, the chart is configured by specifications of parameters, categories, colors, and more. For example, par(mar=c(0, 2, 1, 2), xpd=FALSE, cex=0.5) indicate the positioning, size, and appearance of the pie chart. The names of the categories in the chart are given by the names(pie.sales) part of the code, while the colors are specified by col=gray. \n\n### Compare the regression models in anscombe01.R, and compare different ways to create the plots. \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment3_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\n\nHere we can see the four regression data sets given by anscombe01.R; currently, these regression models are uniform, with the same colors and same style. However, we can customize these charts in different ways by changing features such as the line type and color as well as the point color, shape, or size. \nFor example, we can change the point type from filled to unfilled or change the color to green or purple. We can also make changes to the line - a dotted line, a traced line, or making the line thicker or thinner. \n\n\n### Can you finetune the charts without using other packages? \n####       a) use a serif font \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment3_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\n\n\n####       b) try non-default colors\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment3_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\n\n\n####       c) use own plotting character\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment3_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n\n\n\n### How about using ggplot2? \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment3_files/figure-html/unnamed-chunk-6-1.png){width=672}\n:::\n:::\n\n\n\n\n### Hackathon \n#### Replicate given the Scatterplot matrix displaying COVID-19 deaths in Europe. \n\n",
+    "supporting": [
+      "assignment3_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

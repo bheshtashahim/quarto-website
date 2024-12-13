@@ -1,0 +1,19 @@
+---
+title: "Final Project EPPS 6356"
+author: Bheshta Shahim
+format: 
+  html: 
+    theme: "yeti" 
+---
+## Final Project - EPPS 6356 Data Visualization 
+
+#### Our final project analyzed the relationship between the walkability of a city and the mental health of its residents. Specifically, we wanted to examine the extent to which the walkability of a city affects the depression rates experienced by the residents. We focused on three major Texas cities - Dallas, Austin, and Houston. The results from our review and analysis of the data is below. We have constructed a Shiny application of multiple charts and visualizations in order to represent the data on walkablity and depression rates. Additionally, our final paper goes into detail on the background of this topic, existing literature, and the data we found. 
+
+### Shiny App 
+
+[View the Shiny App here](https://malashiny.shinyapps.io/test-1/)
+
+### Final Paper 
+
+<iframe src="shahim_finalproject.pdf" width="100%" height="800px" style="border:none;"></iframe>
+

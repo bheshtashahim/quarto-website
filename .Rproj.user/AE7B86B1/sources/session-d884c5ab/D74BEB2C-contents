@@ -1,0 +1,184 @@
+---
+title: "Assignment 4"
+author: Bheshta Shahim
+format: 
+  html: 
+    theme: "yeti" 
+---
+
+### Generate a program to create charts using only R Graphics or ggplot2 or any R packages.
+
+#### Variable Width Column Chart
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+library(ggplot2)
+library(dplyr)
+
+# Data
+data <- data.frame(
+  category = c("Company A", "Company B", "Company C", "Company D", "Company E"),
+  value = c(10, 20, 15, 30, 25),
+  width = c(2, 3, 1, 4, 2)
+)
+
+# Calculate cumulative positions for x-axis
+data <- data %>%
+  mutate(
+    xmin = cumsum(lag(width, default = 0)),
+    xmax = xmin + width
+  )
+
+# Update plot titles and labels for Market Share Analysis
+ggplot(data) +
+  geom_rect(aes(
+    xmin = xmin,
+    xmax = xmax,
+    ymin = 0,
+    ymax = value,
+    fill = category
+  )) +
+  geom_text(aes(
+    x = (xmin + xmax) / 2,  # Center of each bar
+    y = value,
+    label = paste0("$", value, "M")
+  ), vjust = -0.5, size = 4) +
+  scale_fill_brewer(palette = "Set3") +
+  labs(
+    title = "Market Share and Revenue Analysis",
+    x = "Companies",
+    y = "Revenue (in Millions)"
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set3") +
+  theme(
+    text = element_text(family = "serif"),               # Apply serif font to all text
+    plot.title = element_text(size = 16, face = "bold"), # Title font size and style
+    plot.subtitle = element_text(size = 14, face = "italic"), # Subtitle customization
+    axis.title = element_text(size = 12),               # Axis title font size
+    axis.text = element_text(size = 10),                # Axis tick labels font size
+    legend.text = element_text(size = 10)               # Legend font size
+  )
+
+```
+
+#### Table or Table with Embedded Charts
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(gt)
+
+# Sample Data
+product_data <- data.frame(
+  Product = c("A", "B", "C"),
+  Total_Sales = c(500000, 300000, 700000),
+  Monthly_Sales = I(list(
+    c(50, 60, 70, 80, 90, 100, 50, 60, 70, 80, 90, 100),  
+    c(30, 40, 50, 60, 70, 80, 30, 40, 50, 60, 70, 80),
+    c(70, 90, 110, 130, 150, 170, 70, 90, 110, 130, 150, 170)
+  ))
+)
+
+# Function to create and save charts
+create_and_save_mini_chart <- function(monthly_sales, product_name) {
+  chart <- ggplot(data.frame(Month = 1:12, Sales = monthly_sales), aes(x = Month, y = Sales)) +
+    geom_col(fill = "steelblue") +
+    theme_void() +
+    theme(
+      plot.margin = margin(0, 0, 0, 0),
+      axis.text = element_blank(),
+      axis.ticks = element_blank()
+    )
+  
+  file_name <- paste0("charts/chart_", product_name, ".png")
+  ggsave(file_name, plot = chart, width = 4, height = 2, dpi = 150)
+  return(file_name)
+}
+
+# Generate and save charts
+product_data <- product_data %>%
+  rowwise() %>%
+  mutate(
+    Mini_Chart = create_and_save_mini_chart(Monthly_Sales, Product)
+  )
+
+# Create a table with embedded absolute image paths
+product_data %>%
+  select(Product, Total_Sales, Mini_Chart) %>%
+  gt() %>%
+  fmt_currency(columns = "Total_Sales", currency = "USD") %>%
+  text_transform(
+    locations = cells_body(columns = "Mini_Chart"),
+    fn = function(x) {
+      paste0("<img src='", x, "' style='height:50px;'>")
+    }
+  ) %>%
+  cols_label(
+    Product = "Product",
+    Total_Sales = "Total Sales",
+    Mini_Chart = "Monthly Sales Chart"
+  ) %>%
+  tab_header(
+    title = "Sales Performance by Product",
+    subtitle = "Visualized with Embedded Charts"
+  ) %>%
+  opt_all_caps() %>%
+  opt_table_font(font = list(google_font("Roboto")))
+
+```
+
+#### Bar Chart
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load necessary library
+library(ggplot2)
+
+# Create example dataset: Average test scores by subject
+education_data <- data.frame(
+  Subject = c("Math", "Science", "History", "English", "Art"),
+  Average_Score = c(85, 90, 78, 88, 70)
+)
+
+# Create and display the horizontal bar chart
+ggplot(education_data, aes(y = reorder(Subject, Average_Score), x = Average_Score, fill = Subject)) +
+  geom_col() +
+  labs(
+    title = "Average Test Scores Across Subjects",
+    x = "Scores",
+    y = "Subjects"
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set2") +
+  geom_text(aes(label = Average_Score), hjust = -0.2, size = 4, family="serif") +
+theme(
+    text = element_text(family = "serif"), # Apply serif font to all text
+    plot.title = element_text(size = 16, face = "bold"), # Title font style
+    axis.title = element_text(size = 12), # Axis title font size
+    axis.text = element_text(size = 10), # Axis tick labels font size
+    legend.text = element_text(size = 10) # Legend font size
+  )
+```
+
+#### Column Chart
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load necessary library
+library(ggplot2)
+
+# Create example dataset: Government annual budget allocations in millions
+government_data <- data.frame(
+  Sector = c("Healthcare", "Education", "Defense", "Infrastructure", "Public Services"),
+  Budget_Million = c(70, 40, 60, 50, 30)
+)
+
+# Create and display the column chart (vertical bars)
+ggplot(government_data, aes(x = reorder(Sector, Budget_Million), y = Budget_Million, fill = Sector)) +
+  geom_col() +
+  labs(
+    title = "Annual Budget Allocations by Government Sector",
+    x = "Sectors",
+    y = "Budget (in Millions)"
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set3") +
+  geom_text(aes(label = Budget_Million), vjust = -0.3, size = 4)
+```

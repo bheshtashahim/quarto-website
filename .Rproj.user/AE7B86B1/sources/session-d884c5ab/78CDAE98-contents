@@ -1,0 +1,444 @@
+---
+title: "Assignment 5"
+author: Bheshta Shahim
+format: 
+  html: 
+    theme: "yeti" 
+---
+
+### Create the following charts using only R graphics functions. Be sure to customize the charts with your own style/theme. 
+
+#### The following data is drawn from an existing dataset in which age, gender, and occupation is collected for each individual along with various metrics regarding sleep quality and other health factors. 
+
+####    a) Histogram
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load the dataset in R
+library(readxl)
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Create a histogram for "Sleep Duration"
+hist(data$`Sleep Duration`,
+     main = "Histogram of Sleep Duration",
+     xlab = "Sleep Duration (hours)",
+     col = "lightblue",
+     border = "black",
+     breaks = 10)  # Adjust the number of bins as needed
+
+```
+
+####    b) Bar Chart 
+#####       i. Vertical 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load necessary library to read data
+library(readxl)
+library(RColorBrewer)
+
+# Read the dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Summarize the data: calculate average quality of sleep
+sleep_summary <- aggregate(data$`Quality of Sleep`, by = list(data$Occupation), FUN = mean, na.rm = TRUE)
+colnames(sleep_summary) <- c("Occupation", "Avg_Quality_Sleep")
+
+# Sort the data for better visualization
+sleep_summary <- sleep_summary[order(sleep_summary$Avg_Quality_Sleep, decreasing = TRUE), ]
+
+# Set font customizations
+par(
+  family = "serif",        # Set font family to serif
+  cex.main = 1.5,          # Increase title font size
+  cex.lab = 1.2,           # Increase axis title font size
+  cex.axis = 0.8           # Adjust font size for axis labels
+)
+
+# Create a vertical bar chart
+barplot(
+  sleep_summary$Avg_Quality_Sleep,
+  names.arg = sleep_summary$Occupation,
+  col = brewer.pal(length(sleep_summary$Occupation), "Dark2"), # Use color scheme for the bars
+  main = "Average Quality of Sleep by Occupation",
+  xlab = "Occupation",
+  ylab = "Average Quality of Sleep (Scale)",
+  las = 2,                  # Rotate x-axis labels for better readability
+  border = "black",         # Add a border around the bars
+  cex.names = 0.8           # Adjust font size for x-axis labels
+)
+
+# Reset graphical parameters to defaults
+par(family = "sans", cex.main = 1, cex.lab = 1, cex.axis = 1)
+
+```
+
+#####       ii. Horizontal
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load necessary library to read data
+library(readxl)
+
+# Read the dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Summarize the data: calculate average physical activity level
+activity_summary <- aggregate(data$`Physical Activity Level`, by = list(data$Occupation), FUN = mean, na.rm = TRUE)
+colnames(activity_summary) <- c("Occupation", "Avg_Physical_Activity")
+
+# Sort the data for better visualization
+activity_summary <- activity_summary[order(activity_summary$Avg_Physical_Activity, decreasing = TRUE), ]
+
+# Set font customizations
+par(
+  family = "serif",   # Set the font family to serif
+  cex.main = 1.5,     # Increase title size
+  cex.axis = 0.9,     # Adjust axis font size
+  cex.lab = 1.2       # Adjust labels font size
+)
+
+# Create a horizontal bar chart
+barplot(
+  activity_summary$Avg_Physical_Activity,
+  horiz = TRUE,
+  names.arg = activity_summary$Occupation,
+  col = "chocolate3",            # Choose a bar color
+  main = "Average Physical Activity by Occupation",
+  xlab = "Average Minutes per Day",
+  las = 1,                      # Horizontal axis labels
+  border = "darkgray"           # Add borders to bars
+)
+
+# Reset graphical parameters to defaults
+par(family = "arial", cex = 1)
+
+```
+
+#####   c) Pie Chart
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load required library for reading data
+library(readxl)
+
+# Replace with the actual path to your dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Summarize data for the "Occupation" variable
+occupation_counts <- table(data$Occupation)
+
+# Set font customizations
+par(
+  family = "serif",          # Set the font family
+  cex.main = 1.5             # Font size for the title
+)
+
+# Create a pie chart without labels
+pie(
+  occupation_counts,
+  main = "Distribution of Occupations",
+  col = rainbow(length(occupation_counts)), # Use rainbow colors for slices
+  labels = NA                                # Remove labels from the slices
+)
+
+# Add a legend outside the chart
+legend(
+  "topleft",                                      # Position the legend
+  legend = paste(names(occupation_counts), "(", occupation_counts, ")"), # Legend labels
+  fill = rainbow(length(occupation_counts)),      # Colors matching the pie slices
+  bty = "n",                                      # Remove legend border
+  cex = 0.7                                       # Font size for legend text
+)
+
+# Reset graphical parameters to default after plotting
+par(family = "arial", cex = 1)
+
+```
+
+#####   d) Boxplot 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load required library for reading data
+library(readxl)
+
+# Load dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Remove missing values and select relevant columns
+stress_data <- na.omit(data[, c("Occupation", "Stress Level")])
+
+# Adjust graphical parameters to move the x-axis title downward
+par(mgp = c(3, 1.5, 0))  # Increase y value to move x-axis title further down
+
+# Create a boxplot using base R graphics
+boxplot(
+  `Stress Level` ~ factor(Occupation),
+  data = stress_data,
+  main = "Boxplot of Stress Levels by Occupation",
+  xlab = "Occupation",
+  ylab = "Stress Level",
+  col = "lightcoral",
+  border = "black",
+  las = 2,  # Rotate x-axis labels for better readability
+  cex.axis = 0.8
+)
+
+# Reset graphical parameters to default
+par(mgp = c(4.0, 1, 0))
+
+```
+
+#####   e) Scatterplot 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load required library for reading data
+library(readxl)
+
+# Read in the dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Summarize data for plotting
+physical_activity <- data$`Physical Activity Level`
+quality_of_sleep <- data$`Quality of Sleep`
+
+# Set font customizations
+par(
+  family = "serif",    # Set the font family to serif
+  cex.main = 1.5,      # Font size for the title
+  cex.lab = 1.2,       # Font size for axis labels
+  cex.axis = 1        # Font size for axis tick labels
+)
+
+# Create a scatter plot with title and customizations
+plot(
+  physical_activity,
+  quality_of_sleep,
+  main = "Physical Activity Level vs. Quality of Sleep",
+  xlab = "Physical Activity Level",
+  ylab = "Quality of Sleep",
+  pch = 16,           # Solid circle points
+  col = "darkturquoise",       # Color of the points
+  cex = 1.2            # Size of the points
+)
+
+# Optionally, add a regression line
+abline(lm(quality_of_sleep ~ physical_activity), col = "red", lwd = 2)
+
+# Reset graphical parameters
+par(family = "serif", cex.main = 1, cex.lab = 1, cex.axis = 1)
+```
+
+### Repeat using ggplot2, with your own style. 
+
+####    a) Histogram
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load required libraries
+library(readxl)
+library(ggplot2)
+
+# Replace with the actual path to your dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Create a ggplot2 histogram for "Sleep Duration"
+ggplot(data, aes(x = `Sleep Duration`)) +
+  geom_histogram(
+    binwidth = 0.25, # Adjust binwidth as needed
+    fill = "lightblue",
+    color = "black"
+  ) +
+  labs(
+    title = "Histogram of Sleep Duration",
+    x = "Sleep Duration (hours)",
+    y = "Frequency"
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(size = 14, family = "serif") # Optional: adjust font size and family
+  )
+```
+
+####    b) Bar Chart 
+#####       i. Vertical 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load necessary libraries
+library(ggplot2)
+library(readxl)
+
+# Read the dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Summarize the data: calculate average quality of sleep
+sleep_summary <- aggregate(data$`Quality of Sleep`, by = list(data$Occupation), FUN = mean, na.rm = TRUE)
+colnames(sleep_summary) <- c("Occupation", "Avg_Quality_Sleep")
+
+# Sort the data for better visualization
+sleep_summary <- sleep_summary[order(sleep_summary$Avg_Quality_Sleep, decreasing = TRUE), ]
+
+# Create a vertical bar chart
+ggplot(sleep_summary, aes(x = reorder(Occupation, -Avg_Quality_Sleep), y = Avg_Quality_Sleep, fill = Occupation)) +
+  geom_bar(stat = "identity", color = "black", show.legend = FALSE) +
+  labs(
+    title = "Average Quality of Sleep by Occupation",
+    x = "Occupation",
+    y = "Average Quality of Sleep (Scale)"
+  ) +
+  theme_minimal(base_family = "serif") +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    axis.text = element_text(size = 10, angle = 45, hjust = 1)
+  ) +
+  scale_fill_brewer(palette = "Paired")
+```
+
+#####       ii. Horizontal
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load necessary libraries
+library(ggplot2)
+library(readxl)
+
+# Read the dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Summarize the data: calculate average physical activity level
+activity_summary <- aggregate(data$`Physical Activity Level`, by = list(data$Occupation), FUN = mean, na.rm = TRUE)
+colnames(activity_summary) <- c("Occupation", "Avg_Physical_Activity")
+
+# Sort the data for better visualization
+activity_summary <- activity_summary[order(activity_summary$Avg_Physical_Activity, decreasing = TRUE), ]
+
+# Create a horizontal bar chart
+ggplot(activity_summary, aes(x = reorder(Occupation, Avg_Physical_Activity), y = Avg_Physical_Activity, fill = Occupation)) +
+  geom_bar(stat = "identity", color = "black", show.legend = FALSE) +
+  coord_flip() +
+  labs(
+    title = "Average Physical Activity by Occupation",
+    x = "Occupation",
+    y = "Average Minutes per Day"
+  ) +
+  theme_minimal(base_family = "serif") +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    axis.text = element_text(size = 10)
+  ) +
+  scale_fill_brewer(palette = "Set3")
+```
+
+#####   c) Pie Chart
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load required libraries
+library(readxl)
+library(ggplot2)
+library(dplyr)
+
+# Load dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Summarize data for the "Occupation" variable
+occupation_counts <- data %>%
+  count(Occupation) %>%
+  mutate(Percentage = round(100 * n / sum(n), 1))
+
+# Ensure all occupations have distinct colors
+num_occupations <- nrow(occupation_counts)
+custom_colors <- RColorBrewer::brewer.pal(n = min(12, num_occupations), name = "Set3")
+
+# Create the pie chart with ggplot2 (no percentages inside)
+ggplot(occupation_counts, aes(x = "", y = n, fill = Occupation)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y") +
+  labs(title = "Distribution of Occupations") +
+  scale_fill_manual(values = custom_colors, 
+                    labels = paste0(occupation_counts$Occupation, " (", occupation_counts$Percentage, "%)")) +
+  theme_void() +
+  theme(
+    text = element_text(family = "serif"),
+    plot.title = element_text(size = 20, face = "bold")
+  )
+
+```
+
+#####   d) Boxplot 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load required libraries
+library(ggplot2)
+library(readxl)
+
+# Load dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Remove missing values and select relevant columns
+stress_data <- na.omit(data[, c("Occupation", "Stress Level")])
+
+# Create the boxplot with ggplot2 and font customizations
+ggplot(stress_data, aes(x = reorder(Occupation, `Stress Level`), y = `Stress Level`, fill = Occupation)) +
+  geom_boxplot() +
+  labs(
+    title = "Boxplot of Stress Levels by Occupation",
+    x = "Occupation",
+    y = "Stress Level"
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(family = "serif"),           # Set the font family to serif
+    plot.title = element_text(size = 16, face = "bold"), # Title customization
+    axis.title = element_text(size = 14),            # X and Y axis titles
+    axis.text = element_text(size = 12),             # Axis tick text
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),  # Rotate x-axis labels
+    legend.position = "none"                        # Remove legend for a cleaner look
+  ) +
+  scale_fill_brewer(palette = "Set2")             # Use a Set2 color palette
+```
+
+#####   e) Scatterplot 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load required library
+library(readxl)
+library(ggplot2)
+
+# Read in the dataset
+data <- read_excel("~/Library/Mobile Documents/com~apple~Numbers/Documents/Sleep_health_and_lifestyle_dataset.xlsx")
+
+# Create the ggplot scatter plot with customizations
+ggplot(data, aes(x = `Physical Activity Level`, y = `Quality of Sleep`)) +
+  geom_point(color = "darkturquoise", size = 2) +   # Solid points
+  geom_smooth(method = "lm", se = TRUE, color = "red", size = 1.5) +  # Regression line
+  labs(
+    title = "Physical Activity Level vs. Quality of Sleep",
+    x = "Physical Activity Level",
+    y = "Quality of Sleep"
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(family = "serif"),  # Set the font family to serif
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12)
+  )
+```
+
+<br>
+
+
+
+<br>
+
+
+
+<br>
+
+
+
+
+
+<br>
+
+
+
+###### AI was used in assisting with some code generation, finding errors, debugging, and enhancements.

@@ -1,0 +1,17 @@
+{
+  "hash": "415a11c238cd7fc81012170e3467fcdd",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Assignment 5\"\nauthor: Bheshta Shahim\nformat: \n  html: \n    theme: \"yeti\" \n---\n\n\n\n\n### Create the following charts using only R graphics functions. Be sure to customize the charts with your own style/theme. \n\n#### The following data is drawn from an existing dataset in which age, gender, and occupation is collected for each individual along with various metrics regarding sleep quality and other health factors. \n\n####    a) Histogram\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n\n\n####    b) Bar Chart \n#####       i. Vertical \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\n\n\n#####       ii. Horizontal\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\n\n\n#####   c) Pie Chart\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\n\n\n#####   d) Boxplot \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n\n\n\n\n#####   e) Scatterplot \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-6-1.png){width=672}\n:::\n:::\n\n\n\n\n### Repeat using ggplot2, with your own style. \n\n####    a) Histogram\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-7-1.png){width=672}\n:::\n:::\n\n\n\n\n####    b) Bar Chart \n#####       i. Vertical \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-8-1.png){width=672}\n:::\n:::\n\n\n\n\n#####       ii. Horizontal\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-9-1.png){width=672}\n:::\n:::\n\n\n\n\n#####   c) Pie Chart\n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-10-1.png){width=672}\n:::\n:::\n\n\n\n\n#####   d) Boxplot \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-11-1.png){width=672}\n:::\n:::\n\n\n\n\n#####   e) Scatterplot \n\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](assignment5_files/figure-html/unnamed-chunk-12-1.png){width=672}\n:::\n:::\n\n\n\n\n<br>\n\n\n\n<br>\n\n\n\n<br>\n\n\n\n\n\n<br>\n\n\n\n###### AI was used in assisting with some code generation, finding errors, debugging, and enhancements.\n",
+    "supporting": [
+      "assignment5_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
