@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3cfe5350af5aac61aedbbf5daa488437.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,11 +97,15 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resume.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Assignments</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-visualization" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Visualization</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-visualization">    
         <li>
     <a class="dropdown-item" href="./assignment1.html">
  <span class="dropdown-text">Assignment 1</span></a>
@@ -128,6 +132,21 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./other.html">
+ <span class="dropdown-text">Literature &amp; Media Reviews</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-methods-of-data-collection--production" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Methods of Data Collection &amp; Production</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-methods-of-data-collection--production">    
+        <li>
+    <a class="dropdown-item" href="./assignment1ep6302.html">
+ <span class="dropdown-text">Assignment 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./reviews.html">
  <span class="dropdown-text">Literature &amp; Media Reviews</span></a>
   </li>  
     </ul>
@@ -219,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Bheshta Shahim</figcaption>
 </figure>
 </div>
-<p>Hi, welcome to my website! My name is Bheshta, and I’m a current Master’s student in the Social Data Analytics and Research program at UT Dallas.</p>
+<p>Hi, welcome to my website! My name is Bheshta, and I’m a current Master’s student in the Social Data Analytics and Research program within the School of Economic, Political, and Policy Sciences at UT Dallas.</p>
 
 
 
@@ -306,8 +325,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -418,7 +435,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
