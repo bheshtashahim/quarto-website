@@ -222,14 +222,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages." id="toc-generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages." class="nav-link active" data-scroll-target="#generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages.">Generate a program to create charts using only R Graphics or ggplot2 or any R packages.</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -259,538 +253,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages." class="level3">
-<h3 class="anchored" data-anchor-id="generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages.">Generate a program to create charts using only R Graphics or ggplot2 or any R packages.</h3>
-<section id="variable-width-column-chart" class="level4">
-<h4 class="anchored" data-anchor-id="variable-width-column-chart">Variable Width Column Chart</h4>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="assignment4_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 9
+  Country     Continent   Forex_Including_Gold Change_Including_Gold
+  &lt;chr&gt;       &lt;chr&gt;                      &lt;dbl&gt;                 &lt;dbl&gt;
+1 China       Asia                     3643149                 41079
+2 Japan       Asia                     1324210                 19774
+3 Switzerland Europe                   1007710                 13935
+4 Russia      Europe/Asia               734100                 14300
+5 India       Asia                      692576                  5543
+6 Taiwan      Asia                      597430                  4390
+# ℹ 5 more variables: Forex_Excluding_Gold &lt;dbl&gt;, Change_Excluding_Gold &lt;dbl&gt;,
+#   Last_Reported_Date &lt;chr&gt;, Ref &lt;chr&gt;, Date_clean &lt;date&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [196 × 9] (S3: tbl_df/tbl/data.frame)
+ $ Country              : chr [1:196] "China" "Japan" "Switzerland" "Russia" ...
+ $ Continent            : chr [1:196] "Asia" "Asia" "Europe" "Europe/Asia" ...
+ $ Forex_Including_Gold : num [1:196] 3643149 1324210 1007710 734100 692576 ...
+ $ Change_Including_Gold: num [1:196] 41079 19774 13935 14300 5543 ...
+ $ Forex_Excluding_Gold : num [1:196] 3389306 1230940 897295 434487 585719 ...
+ $ Change_Excluding_Gold: num [1:196] 31221 16230 14490 1517 216 ...
+ $ Last_Reported_Date   : chr [1:196] "31 Aug 2025" "31 Aug 2025" "31 Jul 2025" "14 Nov 2025" ...
+ $ Ref                  : chr [1:196] "[3]" "[4]" "[5]" "[6]" ...
+ $ Date_clean           : Date[1:196], format: "2025-08-31" "2025-08-31" ...</code></pre>
 </div>
 </div>
-</div>
-</section>
-<section id="table-or-table-with-embedded-charts" class="level4">
-<h4 class="anchored" data-anchor-id="table-or-table-with-embedded-charts">Table or Table with Embedded Charts</h4>
 <div class="cell">
-<div class="cell-output-display">
-<div id="yaixckomec" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#yaixckomec table {
-  font-family: Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#yaixckomec thead, #yaixckomec tbody, #yaixckomec tfoot, #yaixckomec tr, #yaixckomec td, #yaixckomec th {
-  border-style: none;
-}
-
-#yaixckomec p {
-  margin: 0;
-  padding: 0;
-}
-
-#yaixckomec .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#yaixckomec .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#yaixckomec .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#yaixckomec .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#yaixckomec .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#yaixckomec .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yaixckomec .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#yaixckomec .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#yaixckomec .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#yaixckomec .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#yaixckomec .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#yaixckomec .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#yaixckomec .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#yaixckomec .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#yaixckomec .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#yaixckomec .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#yaixckomec .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#yaixckomec .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#yaixckomec .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#yaixckomec .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#yaixckomec .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#yaixckomec .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#yaixckomec .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#yaixckomec .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yaixckomec .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#yaixckomec .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yaixckomec .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#yaixckomec .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yaixckomec .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#yaixckomec .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#yaixckomec .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_left {
-  text-align: left;
-}
-
-#yaixckomec .gt_center {
-  text-align: center;
-}
-
-#yaixckomec .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#yaixckomec .gt_font_normal {
-  font-weight: normal;
-}
-
-#yaixckomec .gt_font_bold {
-  font-weight: bold;
-}
-
-#yaixckomec .gt_font_italic {
-  font-style: italic;
-}
-
-#yaixckomec .gt_super {
-  font-size: 65%;
-}
-
-#yaixckomec .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#yaixckomec .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#yaixckomec .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#yaixckomec .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#yaixckomec .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#yaixckomec .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#yaixckomec .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#yaixckomec .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#yaixckomec div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_heading header">
-<th colspan="3" class="gt_heading gt_title gt_font_normal">Sales Performance by Product</th>
-</tr>
-<tr class="gt_heading even">
-<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Visualized with Embedded Charts</th>
-</tr>
-<tr class="gt_col_headings header">
-<th id="Product" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Product</th>
-<th id="Total_Sales" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total Sales</th>
-<th id="Mini_Chart" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Monthly Sales Chart</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="Product">A</td>
-<td class="gt_row gt_right" headers="Total_Sales">$500,000.00</td>
-<td class="gt_row gt_left" headers="Mini_Chart"><img src="charts/chart_A.png" class="img-fluid" style="height:50px;"></td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Product">B</td>
-<td class="gt_row gt_right" headers="Total_Sales">$300,000.00</td>
-<td class="gt_row gt_left" headers="Mini_Chart"><img src="charts/chart_B.png" class="img-fluid" style="height:50px;"></td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Product">C</td>
-<td class="gt_row gt_right" headers="Total_Sales">$700,000.00</td>
-<td class="gt_row gt_left" headers="Mini_Chart"><img src="charts/chart_C.png" class="img-fluid" style="height:50px;"></td>
-</tr>
-</tbody>
-</table>
-
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "State.or.territory"           "Census.population.8..9..a."  
+ [3] "Census.population.8..9..a..1" "Largest.cities"              
+ [5] "Largest.cities.1"             "House.seats.b."              
+ [7] "House.seats.b..1"             "GDP..nominal."               
+ [9] "Pop..perseat.2020..a."        "X..US.2020."                 
+[11] "X..EC.2020."                 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "State.or.territory"         "Census.population.8..9..a."
+[3] "Largest.cities"             "Largest.cities.1"          
+[5] "House.seats.b."             "GDP..nominal."             
+[7] "Pop..perseat.2020..a."      "X..US.2020."               
+[9] "X..EC.2020."               </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  State_or_Territory Population_2020 Largest_Cities House_Seats GDP_Nominal
+  &lt;chr&gt;                        &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;             &lt;dbl&gt;
+1 California                39431263 Los Angeles    52              4712509
+2 Texas                     31290831 Houston        38              3422614
+3 Florida                   23372215 Jacksonville   28              2513178
+4 New York                  19867248 New York City  26              2847411
+5 Pennsylvania              13078751 Philadelphia   17              2259751
+6 Illinois                  12710158 Chicago        17              2053158
+# ℹ 1 more variable: Pop_per_Seat &lt;dbl&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [60 × 6] (S3: tbl_df/tbl/data.frame)
+ $ State_or_Territory: chr [1:60] "California" "Texas" "Florida" "New York" ...
+ $ Population_2020   : num [1:60] 39431263 31290831 23372215 19867248 13078751 ...
+ $ Largest_Cities    : chr [1:60] "Los Angeles" "Houston" "Jacksonville" "New York City" ...
+ $ House_Seats       : chr [1:60] "52" "38" "28" "26" ...
+ $ GDP_Nominal       : num [1:60] 4712509 3422614 2513178 2847411 2259751 ...
+ $ Pop_per_Seat      : num [1:60] 760350 766987 769221 776971 764865 ...</code></pre>
 </div>
 </div>
-</div>
+<section id="in-addition-to-the-foreign-reserves-table-i-scraped-a-second-wikipedia-table-that-lists-u.s.-states-and-territories-by-population.-this-table-contained-structured-columns-for-rank-state-name-population-and-percent-change-which-allowed-straightforward-cleaning.-i-removed-formatting-characters-commas-and-percent-signs-converted-character-fields-to-numeric-and-standardized-the-column-names.-the-final-cleaned-dataset-contains-population-data-for-all-50-states-plus-u.s.-territories." class="level4">
+<h4 class="anchored" data-anchor-id="in-addition-to-the-foreign-reserves-table-i-scraped-a-second-wikipedia-table-that-lists-u.s.-states-and-territories-by-population.-this-table-contained-structured-columns-for-rank-state-name-population-and-percent-change-which-allowed-straightforward-cleaning.-i-removed-formatting-characters-commas-and-percent-signs-converted-character-fields-to-numeric-and-standardized-the-column-names.-the-final-cleaned-dataset-contains-population-data-for-all-50-states-plus-u.s.-territories.">In addition to the foreign reserves table, I scraped a second Wikipedia table that lists U.S. states and territories by population. This table contained structured columns for rank, state name, population, and percent change, which allowed straightforward cleaning. I removed formatting characters (commas and percent signs), converted character fields to numeric, and standardized the column names. The final cleaned dataset contains population data for all 50 states plus U.S. territories.</h4>
 </section>
-<section id="bar-chart" class="level4">
-<h4 class="anchored" data-anchor-id="bar-chart">Bar Chart</h4>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="assignment4_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="column-chart" class="level4">
-<h4 class="anchored" data-anchor-id="column-chart">Column Chart</h4>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="assignment4_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="the-first-step-in-creating-a-solid-data-plan-for-acquiring-web-data-is-to-define-the-research-question-and-determine-what-information-is-needed-from-there-the-key-web-sources-where-the-information-is-published-should-be-identified---for-example-wikipedia-the-world-bank-government-sites-the-imf-and-more.-the-next-step-is-to-evaluate-data-accessibility-or-how-the-data-is-best-accessed-this-can-include-public-api-html-tables-downloadable-csv-or-excel-files-and-more.-if-appropriate-it-is-crucial-to-develop-a-web-scraping-strategy-and-determine-which-methods-and-tools-rvest-httr-jsonlite-tidyverse-make-more-sense.-after-that-its-important-to-clean-and-validate-the-data-including-by-handling-missing-values-removing-non-data-rows-converting-to-numeric-formats-and-more.-lastly-data-should-be-stored-responsibly-depending-on-the-scale-of-the-project." class="level4">
+<h4 class="anchored" data-anchor-id="the-first-step-in-creating-a-solid-data-plan-for-acquiring-web-data-is-to-define-the-research-question-and-determine-what-information-is-needed-from-there-the-key-web-sources-where-the-information-is-published-should-be-identified---for-example-wikipedia-the-world-bank-government-sites-the-imf-and-more.-the-next-step-is-to-evaluate-data-accessibility-or-how-the-data-is-best-accessed-this-can-include-public-api-html-tables-downloadable-csv-or-excel-files-and-more.-if-appropriate-it-is-crucial-to-develop-a-web-scraping-strategy-and-determine-which-methods-and-tools-rvest-httr-jsonlite-tidyverse-make-more-sense.-after-that-its-important-to-clean-and-validate-the-data-including-by-handling-missing-values-removing-non-data-rows-converting-to-numeric-formats-and-more.-lastly-data-should-be-stored-responsibly-depending-on-the-scale-of-the-project.">The first step in creating a solid data plan for acquiring web data is to define the research question and determine what information is needed; from there, the key web sources where the information is published should be identified - for example: Wikipedia, the World Bank, government sites, the IMF, and more. The next step is to evaluate data accessibility, or how the data is best accessed; this can include public API, HTML tables, downloadable CSV or Excel files, and more. If appropriate, it is crucial to develop a web scraping strategy and determine which methods and tools (rvest, httr, jsonlite, tidyverse) make more sense. After that, it’s important to clean and validate the data, including by handling missing values, removing non-data rows, converting to numeric formats, and more. Lastly, data should be stored responsibly, depending on the scale of the project.</h4>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

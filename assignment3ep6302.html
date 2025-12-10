@@ -8,7 +8,7 @@
 
 <meta name="author" content="Bheshta Shahim">
 
-<title>Assignment 4 – Bheshta Shahim</title>
+<title>Assignment 3 – Bheshta Shahim</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -201,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Assignment 4</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Assignment 3</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -222,21 +222,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages." id="toc-generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages." class="nav-link active" data-scroll-target="#generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages.">Generate a program to create charts using only R Graphics or ggplot2 or any R packages.</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 4</h1>
+<h1 class="title">Assignment 3</h1>
 </div>
 
 
@@ -259,538 +253,77 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages." class="level3">
-<h3 class="anchored" data-anchor-id="generate-a-program-to-create-charts-using-only-r-graphics-or-ggplot2-or-any-r-packages.">Generate a program to create charts using only R Graphics or ggplot2 or any R packages.</h3>
-<section id="variable-width-column-chart" class="level4">
-<h4 class="anchored" data-anchor-id="variable-width-column-chart">Variable Width Column Chart</h4>
 <div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 4
+   name        label                                concept            geography
+   &lt;chr&gt;       &lt;chr&gt;                                &lt;chr&gt;              &lt;chr&gt;    
+ 1 B19001A_001 Estimate!!Total:                     Household Income … &lt;NA&gt;     
+ 2 B19001A_002 Estimate!!Total:!!Less than $10,000  Household Income … &lt;NA&gt;     
+ 3 B19001A_003 Estimate!!Total:!!$10,000 to $14,999 Household Income … &lt;NA&gt;     
+ 4 B19001A_004 Estimate!!Total:!!$15,000 to $19,999 Household Income … &lt;NA&gt;     
+ 5 B19001A_005 Estimate!!Total:!!$20,000 to $24,999 Household Income … &lt;NA&gt;     
+ 6 B19001A_006 Estimate!!Total:!!$25,000 to $29,999 Household Income … &lt;NA&gt;     
+ 7 B19001A_007 Estimate!!Total:!!$30,000 to $34,999 Household Income … &lt;NA&gt;     
+ 8 B19001A_008 Estimate!!Total:!!$35,000 to $39,999 Household Income … &lt;NA&gt;     
+ 9 B19001A_009 Estimate!!Total:!!$40,000 to $44,999 Household Income … &lt;NA&gt;     
+10 B19001A_010 Estimate!!Total:!!$45,000 to $49,999 Household Income … &lt;NA&gt;     </code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="assignment4_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="assignment3ep6302_files/figure-html/mapping-census-data-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 10 features and 3 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -104.9803 ymin: 26.78092 xmax: -94.05096 ymax: 36.50068
+Geodetic CRS:  NAD83
+# A tibble: 10 × 4
+   NAME                     estimate_gini moe_gini                      geometry
+   &lt;chr&gt;                            &lt;dbl&gt;    &lt;dbl&gt;            &lt;MULTIPOLYGON [°]&gt;
+ 1 Loving County, Texas             0.658   0.199  (((-103.9839 31.99411, -103.…
+ 2 Sherman County, Texas            0.615   0.144  (((-102.1628 36.4979, -102.1…
+ 3 Stonewall County, Texas          0.615   0.171  (((-100.519 32.99362, -100.5…
+ 4 Tyler County, Texas              0.568   0.076  (((-94.65799 31.01201, -94.5…
+ 5 Presidio County, Texas           0.553   0.117  (((-104.9801 30.62514, -104.…
+ 6 Brooks County, Texas             0.552   0.084  (((-98.53665 27.2652, -98.52…
+ 7 Briscoe County, Texas            0.549   0.0576 (((-101.4721 34.43408, -101.…
+ 8 Jeff Davis County, Texas         0.545   0.0783 (((-104.9796 30.62936, -104.…
+ 9 Hamilton County, Texas           0.541   0.0651 (((-98.44727 31.69253, -98.3…
+10 Cottle County, Texas             0.541   0.0739 (((-100.5181 34.00389, -100.…</code></pre>
 </div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 10 features and 3 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -104.9185 ymin: 28.03042 xmax: -94.35338 ymax: 36.5007
+Geodetic CRS:  NAD83
+# A tibble: 10 × 4
+   NAME                     estimate_gini moe_gini                      geometry
+   &lt;chr&gt;                            &lt;dbl&gt;    &lt;dbl&gt;            &lt;MULTIPOLYGON [°]&gt;
+ 1 Crockett County, Texas           0.289   0.0448 (((-102.3888 31.08716, -102.…
+ 2 Dallam County, Texas             0.328   0.0477 (((-103.0419 36.50044, -103.…
+ 3 Winkler County, Texas            0.352   0.0371 (((-103.3272 31.7819, -103.3…
+ 4 Armstrong County, Texas          0.352   0.0337 (((-101.6294 34.75006, -101.…
+ 5 Sutton County, Texas             0.356   0.0429 (((-100.9607 30.50235, -100.…
+ 6 Culberson County, Texas          0.364   0.0554 (((-104.9177 31.88519, -104.…
+ 7 La Salle County, Texas           0.367   0.0446 (((-99.39594 28.50026, -99.3…
+ 8 Schleicher County, Texas         0.375   0.0541 (((-100.9622 31.08249, -100.…
+ 9 Chambers County, Texas           0.380   0.0218 (((-94.7183 29.72885, -94.71…
+10 Roberts County, Texas            0.383   0.0573 (((-101.086 35.82337, -101.0…</code></pre>
+</div>
+</div>
+<section id="the-map-of-median-household-income-across-by-county-reveals-strong-regional-disparities-in-texas-with-the-highest-median-household-incomes-concentrated-in-major-metropolitan-areas-such-as-austin-dallasfort-worth-and-the-suburban-counties-surrounding-houston.-in-contrast-the-rio-grande-valley-and-many-of-the-rural-western-counties-show-substantially-lower-incomes.-the-map-reflects-how-economic-activity-clusters-around-large-urban-centers-where-jobs-in-tech-healthcare-business-and-education-contribute-to-higher-household-incomes.-rural-and-border-areas-tend-to-face-greater-structural-disadvantages-including-lower-access-to-high-wage-industries-higher-poverty-rates-lower-educational-attainment-and-greater-reliance-on-agricultural-or-service-based-economies." class="level4">
+<h4 class="anchored" data-anchor-id="the-map-of-median-household-income-across-by-county-reveals-strong-regional-disparities-in-texas-with-the-highest-median-household-incomes-concentrated-in-major-metropolitan-areas-such-as-austin-dallasfort-worth-and-the-suburban-counties-surrounding-houston.-in-contrast-the-rio-grande-valley-and-many-of-the-rural-western-counties-show-substantially-lower-incomes.-the-map-reflects-how-economic-activity-clusters-around-large-urban-centers-where-jobs-in-tech-healthcare-business-and-education-contribute-to-higher-household-incomes.-rural-and-border-areas-tend-to-face-greater-structural-disadvantages-including-lower-access-to-high-wage-industries-higher-poverty-rates-lower-educational-attainment-and-greater-reliance-on-agricultural-or-service-based-economies.">The map of median household income across by county reveals strong regional disparities in Texas, with the highest median household incomes concentrated in major metropolitan areas such as Austin, Dallas–Fort Worth, and the suburban counties surrounding Houston. In contrast, the Rio Grande Valley and many of the rural western counties show substantially lower incomes. The map reflects how economic activity clusters around large urban centers, where jobs in tech, healthcare, business, and education contribute to higher household incomes. Rural and border areas tend to face greater structural disadvantages, including lower access to high-wage industries, higher poverty rates, lower educational attainment, and greater reliance on agricultural or service-based economies.</h4>
 </section>
-<section id="table-or-table-with-embedded-charts" class="level4">
-<h4 class="anchored" data-anchor-id="table-or-table-with-embedded-charts">Table or Table with Embedded Charts</h4>
-<div class="cell">
-<div class="cell-output-display">
-<div id="yaixckomec" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#yaixckomec table {
-  font-family: Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#yaixckomec thead, #yaixckomec tbody, #yaixckomec tfoot, #yaixckomec tr, #yaixckomec td, #yaixckomec th {
-  border-style: none;
-}
-
-#yaixckomec p {
-  margin: 0;
-  padding: 0;
-}
-
-#yaixckomec .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#yaixckomec .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#yaixckomec .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#yaixckomec .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#yaixckomec .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#yaixckomec .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yaixckomec .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#yaixckomec .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#yaixckomec .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#yaixckomec .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#yaixckomec .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#yaixckomec .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#yaixckomec .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#yaixckomec .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#yaixckomec .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#yaixckomec .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#yaixckomec .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#yaixckomec .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#yaixckomec .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#yaixckomec .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#yaixckomec .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#yaixckomec .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#yaixckomec .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#yaixckomec .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yaixckomec .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#yaixckomec .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yaixckomec .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#yaixckomec .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yaixckomec .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#yaixckomec .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#yaixckomec .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yaixckomec .gt_left {
-  text-align: left;
-}
-
-#yaixckomec .gt_center {
-  text-align: center;
-}
-
-#yaixckomec .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#yaixckomec .gt_font_normal {
-  font-weight: normal;
-}
-
-#yaixckomec .gt_font_bold {
-  font-weight: bold;
-}
-
-#yaixckomec .gt_font_italic {
-  font-style: italic;
-}
-
-#yaixckomec .gt_super {
-  font-size: 65%;
-}
-
-#yaixckomec .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#yaixckomec .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#yaixckomec .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#yaixckomec .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#yaixckomec .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#yaixckomec .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#yaixckomec .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#yaixckomec .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#yaixckomec div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_heading header">
-<th colspan="3" class="gt_heading gt_title gt_font_normal">Sales Performance by Product</th>
-</tr>
-<tr class="gt_heading even">
-<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Visualized with Embedded Charts</th>
-</tr>
-<tr class="gt_col_headings header">
-<th id="Product" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Product</th>
-<th id="Total_Sales" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total Sales</th>
-<th id="Mini_Chart" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Monthly Sales Chart</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="Product">A</td>
-<td class="gt_row gt_right" headers="Total_Sales">$500,000.00</td>
-<td class="gt_row gt_left" headers="Mini_Chart"><img src="charts/chart_A.png" class="img-fluid" style="height:50px;"></td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Product">B</td>
-<td class="gt_row gt_right" headers="Total_Sales">$300,000.00</td>
-<td class="gt_row gt_left" headers="Mini_Chart"><img src="charts/chart_B.png" class="img-fluid" style="height:50px;"></td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="Product">C</td>
-<td class="gt_row gt_right" headers="Total_Sales">$700,000.00</td>
-<td class="gt_row gt_left" headers="Mini_Chart"><img src="charts/chart_C.png" class="img-fluid" style="height:50px;"></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="bar-chart" class="level4">
-<h4 class="anchored" data-anchor-id="bar-chart">Bar Chart</h4>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="assignment4_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="column-chart" class="level4">
-<h4 class="anchored" data-anchor-id="column-chart">Column Chart</h4>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="assignment4_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="the-gini-index-results-show-that-both-the-highest-and-lowest-inequality-levels-occur-primarily-in-small-rural-counties-rather-than-in-major-urban-centers.-counties-with-low-gini-values-such-as-crockett-dallam-and-armstrong-tend-to-have-relatively-uniform-income-levels-often-because-most-residents-earn-similar-wages-in-agriculture-or-local-service-sectors.-in-contrast-counties-with-high-gini-values-such-as-loving-sherman-and-presidio-are-also-rural-but-have-very-small-populations-where-even-a-few-high-income-households-can-substantially-raise-inequality.-urban-counties-like-dallas-harris-travis-and-bexar-do-not-appear-in-the-top-or-bottom-lists-because-their-gini-values-fall-closer-to-the-middle-of-the-distribution-indicating-that-their-large-populations-produce-more-stable-moderate-inequality-estimates.-overall-the-gini-index-results-reveal-that-extreme-inequality-values-in-texas-are-driven-more-by-county-size-and-population-structure-than-by-urbanization-or-overall-income-levels." class="level4">
+<h4 class="anchored" data-anchor-id="the-gini-index-results-show-that-both-the-highest-and-lowest-inequality-levels-occur-primarily-in-small-rural-counties-rather-than-in-major-urban-centers.-counties-with-low-gini-values-such-as-crockett-dallam-and-armstrong-tend-to-have-relatively-uniform-income-levels-often-because-most-residents-earn-similar-wages-in-agriculture-or-local-service-sectors.-in-contrast-counties-with-high-gini-values-such-as-loving-sherman-and-presidio-are-also-rural-but-have-very-small-populations-where-even-a-few-high-income-households-can-substantially-raise-inequality.-urban-counties-like-dallas-harris-travis-and-bexar-do-not-appear-in-the-top-or-bottom-lists-because-their-gini-values-fall-closer-to-the-middle-of-the-distribution-indicating-that-their-large-populations-produce-more-stable-moderate-inequality-estimates.-overall-the-gini-index-results-reveal-that-extreme-inequality-values-in-texas-are-driven-more-by-county-size-and-population-structure-than-by-urbanization-or-overall-income-levels.">The Gini Index results show that both the highest and lowest inequality levels occur primarily in small, rural counties rather than in major urban centers. Counties with low Gini values (such as Crockett, Dallam, and Armstrong) tend to have relatively uniform income levels, often because most residents earn similar wages in agriculture or local service sectors. In contrast, counties with high Gini values (such as Loving, Sherman, and Presidio) are also rural but have very small populations, where even a few high-income households can substantially raise inequality. Urban counties like Dallas, Harris, Travis, and Bexar do not appear in the top or bottom lists because their Gini values fall closer to the middle of the distribution, indicating that their large populations produce more stable, moderate inequality estimates. Overall, the Gini Index results reveal that extreme inequality values in Texas are driven more by county size and population structure than by urbanization or overall income levels.</h4>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
